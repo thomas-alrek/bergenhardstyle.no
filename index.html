@@ -26,7 +26,7 @@
             <video autoplay muted loop style="width: 50%; height: 50%; mix-blend-mode: screen; z-index:2" id="bg-loop">
                 <source src="/assets/logo-loop.webm" type="video/webm">
             </video>
-            <div class="d-flex text-white">
+            <div class="d-flex text-white countdown">
                 <div class="seven-segment" id="days">00</div>
                 <div class="seven-segment-separator">:</div>
                 <div class="seven-segment" id="hours">00</div>
@@ -34,8 +34,8 @@
                 <div class="seven-segment" id="minutes">00</div>
                 <div class="seven-segment-separator">:</div>
                 <div class="seven-segment" id="seconds">00</div>
-                <div class="seven-segment-separator">:</div>
-                <div class="seven-segment" id="milliseconds">000</div>
+                <div class="seven-segment-separator d-none d-md-block">:</div>
+                <div class="seven-segment d-none d-md-block" id="milliseconds">000</div>
             </div>
         </div>
     </div>

@@ -16,12 +16,28 @@ body {
     background-position: center;
 }
 
+.countdown {
+    align-items: center;
+}
+
 .seven-segment,
 .seven-segment-separator {
     font-size: 4em;
     font-variant: tabular-nums;
     padding: 0 0.5rem;
     z-index: 2;
+}
+
+@media (max-width: 768px) {
+
+    .seven-segment,
+    .seven-segment-separator {
+        font-size: 1em;
+    }
+
+    .seven-segment-separator {
+        line-height: 2rem;
+    }
 }
 
 .seven-segment-separator {
