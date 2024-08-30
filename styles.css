@@ -1,0 +1,57 @@
+@font-face {
+    font-family: Segment7;
+    src: url('/assets/fonts/Segment7Standard.otf');
+}
+
+:root {
+    color: #fff;
+}
+
+body {
+    background-color: #000 !important;
+    background-image: url('/assets/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.seven-segment,
+.seven-segment-separator {
+    font-size: 4em;
+    font-variant: tabular-nums;
+    padding: 0 0.5rem;
+    z-index: 2;
+}
+
+.seven-segment-separator {
+    display: flex;
+    line-height: 4rem;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.seven-segment {
+    font-family: 'Segment7';
+}
