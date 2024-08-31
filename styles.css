@@ -32,11 +32,11 @@ body {
 
     .seven-segment,
     .seven-segment-separator {
-        font-size: 1em;
+        font-size: 2em;
     }
 
     .seven-segment-separator {
-        line-height: 2rem;
+        line-height: 3rem;
     }
 }
 

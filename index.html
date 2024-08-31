@@ -18,10 +18,15 @@
 
         gtag('config', 'G-NE822EDEZW');
     </script>
+    <style>
+        .ratio-9x16 {
+            --bs-aspect-ratio: calc(16 / 9 * 100%);
+        }
+    </style>
 </head>
 
 <body class="bg-black vh-100 vw-100">
-    <div class="container d-flex align-items-center h-100 justify-content-center">
+    <div id="content" class="container d-flex align-items-center h-100 justify-content-center">
         <div class="d-flex flex-column align-items-center">
             <video autoplay muted loop style="width: 50%; height: 50%; mix-blend-mode: screen; z-index:2" id="bg-loop">
                 <source src="/assets/logo-loop.webm" type="video/webm">
@@ -50,7 +55,9 @@
             const secondsEl = document.getElementById('seconds');
             const millisecondsEl = document.getElementById('milliseconds');
             const startDate = new Date();
-            const endDate = new Date('2024-11-02T19:00:00Z');
+            const endDate = new Date('2024-09-02T12:30:00+02:00');
+            const desktop = 'UXFVDVkQVgE';
+            const mobile = 'Cgb9-2633RY';
 
             function updateCountdown() {
                 const now = new Date();
@@ -59,7 +66,21 @@
                     targetDate = endDate;
                 }
 
-                const diff = targetDate - now;
+                var diff = targetDate - now;
+                if (diff < 0) {
+                   clearInterval(counter);
+                   diff = 0;
+                   const isDesktop = window.innerWidth > window.innerHeight;
+                   const container = document.getElementById('content');
+                   container.innerHTML = `
+                        <div class="ratio ratio-${isDesktop ? '16x9' : '9x16'}">
+				<iframe id="ytplayer" type="text/html" width="640" class="w-100 h-100"
+  					src="https://www.youtube.com/embed/${isDesktop ? desktop : mobile}?autoplay=1&origin=https://bergenhardstyle.no"
+  					frameborder="0">
+				</iframe>
+                        </div>
+                   `;
+                }
                 const days = Math.floor(diff / 1000 / 60 / 60 / 24);
                 const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
                 const minutes = Math.floor(diff / 1000 / 60) % 60;
@@ -80,7 +101,7 @@
             }
 
             updateCountdown();
-            setInterval(updateCountdown, 60);
+            var counter = setInterval(updateCountdown, 60);
         });
     </script>
 </body>
