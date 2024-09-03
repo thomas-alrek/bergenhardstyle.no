@@ -18,97 +18,53 @@
 
         gtag('config', 'G-NE822EDEZW');
     </script>
-    <style>
-        .ratio-9x16 {
-            --bs-aspect-ratio: calc(16 / 9 * 100%);
-        }
-    </style>
     <meta property="og:site_name" content="Bergen Hardstyle" />
     <meta property=“og:title” content=“Bergen Hardstyle - Bringing you the sound of the Harder styles since 2009!" />
     <meta property="og:url" content="https://bergenhardstyle.no" />
-    <meta property="og:image" content="https://bergenhardstyle.no/assets/img/bergen-hardstyle-fb-banner.jpg" />
-    <meta property="og:image:secure_url" content="https://bergenhardstyle.no/assets/img/bergen-hardstyle-fb-banner.jpg" />
+    <meta property="og:image" content="https://bergenhardstyle.no/assets/img/hardstyle-euforia-iv-fb-banner.jpg" />
+    <meta property="og:image:secure_url"
+        content="https://bergenhardstyle.no/assets/img/hardstyle-euforia-iv-fb-banner.jpg" />
 </head>
 
-<body class="bg-black vh-100 vw-100">
-    <div id="content" class="container d-flex align-items-center h-100 justify-content-center">
-        <div class="d-flex flex-column align-items-center">
-            <video autoplay muted loop style="width: 50%; height: 50%; mix-blend-mode: screen; z-index:2" id="bg-loop">
-                <source src="/assets/logo-loop.webm" type="video/webm">
-            </video>
-            <div class="d-flex text-white countdown">
-                <div class="seven-segment" id="days">00</div>
-                <div class="seven-segment-separator">:</div>
-                <div class="seven-segment" id="hours">00</div>
-                <div class="seven-segment-separator">:</div>
-                <div class="seven-segment" id="minutes">00</div>
-                <div class="seven-segment-separator">:</div>
-                <div class="seven-segment" id="seconds">00</div>
-                <div class="seven-segment-separator d-none d-md-block">:</div>
-                <div class="seven-segment d-none d-md-block" id="milliseconds">000</div>
+<body class="bg-black vw-100">
+    <div class="video-bg-loop-container">
+        <video autoplay muted loop playsinline id="bg-loop">
+            <source src="/assets/bg_loop_1_seamless_loop.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container bg-dark-translucent rounded p-0" style="min-height: 100vh">
+        <div class="mb-3  p-3">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <img src="/assets/img/bh_logo.png" alt="Bergen Hardstyle" class="img-fluid" width="150">
+                <img src="/assets/img/euforia_iv_event_logo.png"
+                    alt="Hardstyle Euforia IV - Rise From The Ashes - 2 november 2024" class="img-fluid" width="640">
+            </div>
+        </div>
+        <div class="container mb-5 d-flex align-items-center justify-content-center gap-3">
+            <a href="https://www.facebook.com/events/531371829253858" target="_blank"
+                class="btn btn-lg btn-primary mt-3">
+                Event on Facebook
+            </a>
+        </div>
+        <div class="ratio ratio-16x9">
+            <iframe width="1920" height="1080" class="w-100 h-100"
+                src="https://www.youtube.com/embed/UXFVDVkQVgE?autoplay=1&origin=https://bergenhardstyle.no"
+                frameborder="0">
+            </iframe>
+        </div>
+        <div class="container pb-3">
+            <hr>
+            <div class="text-center">
+                <div>
+                    Copyrigth © 2009 - 2024 Bergen Hardstyle
+                </div>
+                <div>
+                    Org. no. 933.438.392
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('#bg-loop').playbackRate = 0.5;
-
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const millisecondsEl = document.getElementById('milliseconds');
-            const startDate = new Date();
-            const endDate = new Date('2024-09-02T12:30:00+02:00');
-            const desktop = 'UXFVDVkQVgE';
-            const mobile = 'Cgb9-2633RY';
-
-            function updateCountdown() {
-                const now = new Date();
-                let targetDate = startDate;
-                if (now > startDate) {
-                    targetDate = endDate;
-                }
-
-                var diff = targetDate - now;
-                if (diff < 0) {
-                   clearInterval(counter);
-                   diff = 0;
-                   const isDesktop = window.innerWidth > window.innerHeight;
-                   const container = document.getElementById('content');
-                   container.innerHTML = `
-                        <div class="ratio ratio-${isDesktop ? '16x9' : '9x16'}">
-				<iframe id="ytplayer" type="text/html" width="640" class="w-100 h-100"
-  					src="https://www.youtube.com/embed/${isDesktop ? desktop : mobile}?autoplay=1&origin=https://bergenhardstyle.no"
-  					frameborder="0">
-				</iframe>
-                        </div>
-                   `;
-                }
-                const days = Math.floor(diff / 1000 / 60 / 60 / 24);
-                const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
-                const minutes = Math.floor(diff / 1000 / 60) % 60;
-                const seconds = Math.floor(diff / 1000) % 60
-                const milliseconds = diff % 1000;
-
-                const daysStr = String(days).padStart(2, '0');
-                const hoursStr = String(hours).padStart(2, '0');
-                const minutesStr = String(minutes).padStart(2, '0');
-                const secondsStr = String(seconds).padStart(2, '0');
-                const millisecondsStr = String(milliseconds).padStart(3, '0');
-
-                daysEl.innerText = String(days).padStart(2, '0');
-                hoursEl.innerText = String(hours).padStart(2, '0');
-                minutesEl.innerText = String(minutes).padStart(2, '0');
-                secondsEl.innerText = String(seconds).padStart(2, '0');
-                millisecondsEl.innerText = String(milliseconds).padStart(3, '0');
-            }
-
-            updateCountdown();
-            var counter = setInterval(updateCountdown, 60);
-        });
-    </script>
 </body>
 
 </html>
